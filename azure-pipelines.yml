@@ -5,6 +5,16 @@ pool: default
 
 
 steps:
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      which java
+              java -version
+              echo JAVA_HOME_8_x86=$JAVA_HOME_8_x86
+              echo JAVA_HOME=$JAVA_HOME
+              javac
+           
 - task: JavaToolInstaller@0
   inputs:
     versionSpec: '8'
