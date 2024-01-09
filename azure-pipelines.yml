@@ -7,6 +7,5 @@ steps:
 - task: NexusIqPipelineTask@1
   inputs:
     nexusIqService: 'sonatype'
-    organizationId: 'azure'
     applicationId: test'
     stage: 'release'
