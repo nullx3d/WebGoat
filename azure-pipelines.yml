@@ -7,5 +7,5 @@ steps:
 - task: NexusIqPipelineTask@1
   inputs:
     nexusIqService: 'sonatype'
-    applicationId: test'
+    applicationId: 'batu'
     stage: 'release'
