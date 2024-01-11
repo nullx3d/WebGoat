@@ -1,0 +1,15 @@
+trigger:
+- master
+
+pool: default
+
+- task: FortifySCA@7
+  inputs:
+    applicationType: 'java'
+    buildSourceVersion: '11'
+    fortifyBuildId: 'webgoatjava'
+    fortifyScanType: 'LocalScan'
+    runFortifyUpload: true
+    fortifyServerName: 'ssc test'
+    fortifyApplicationName: 'webgoatjava'
+    fortifyApplicationVersion: 'webgoatjava'
