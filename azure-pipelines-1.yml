@@ -28,7 +28,7 @@ steps:
     script: |
       $fortify_ssc_api_url = "$(ssc_api)"
       $token = "FortifyToken $(tokens)"
-      $x = 30
+      $x = 150
 
       $headers = @{
           "Authorization" = $tokens
