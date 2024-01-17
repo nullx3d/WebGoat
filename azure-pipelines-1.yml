@@ -4,6 +4,13 @@ trigger:
 pool: default
 
 steps:
+- task: NexusIqPipelineTask@1
+  inputs:
+    nexusIqService: 'sonatype'
+    applicationId: 'webgoat'
+    stage: 'release'
+    scanTargets: '**/*.*'
+
 - task: FortifySCA@7
   inputs:
     applicationType: 'java'
