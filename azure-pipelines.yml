@@ -1,13 +1,45 @@
 trigger:
-- main
+- master
 
-pool: default
-
+pool: batuhan-local
 
 steps:
 - task: NexusIqPipelineTask@1
   inputs:
     nexusIqService: 'sonatype'
-    applicationId: 'batu'
-    stage: 'Build'
+    applicationId: 'webgoat'
+    stage: 'release'
     scanTargets: '**/*.*'
+
+- task: FortifySCA@7
+  inputs:
+    applicationType: 'java'
+    buildSourceVersion: '11'
+    fortifyBuildId: 'webgoatjava'
+    fortifyScanType: 'LocalScan'
+    runFortifyUpload: true
+    fortifyServerName: 'ssc test'
+    fortifyApplicationName: 'webgoatjava'
+    fortifyApplicationVersion: 'webgoatjava'
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      $fortify_ssc_api_url = "$(ssc_api)"
+      $token = "FortifyToken $(tokens)"
+      $x = 150
+
+      $headers = @{
+          "Authorization" = $tokens
+          "Content-Type" = "application/json"
+          "Accept" = "application/json"
+      }
+          # Api request get
+          $response = Invoke-WebRequest -Uri $fortify_ssc_api_url -Method Get -Headers $headers -UseBasicParsing
+              $project_versions_data = $response.Content | ConvertFrom-Json
+                if($project_versions_data.count -ge $x){
+                Write-Host "Pipeline Broken. Error Status: Exit Code 1"
+                Exit 1
+                }
+                return $project_versions_data.count
