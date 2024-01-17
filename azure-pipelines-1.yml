@@ -20,7 +20,7 @@ steps:
     targetType: 'inline'
     script: |
       $fortify_ssc_api_url = "$(ssc_api)"
-      $token = "FortifyToken $(token)"
+      $token = "FortifyToken $(tokens)"
       $x = 5
 
       $headers = @{
