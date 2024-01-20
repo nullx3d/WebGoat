@@ -3,8 +3,7 @@ pool: centos
 
 steps:
 
-- task: Docker@2
+- task: Bash@3
   inputs:
-    containerRegistry: 'docker'
-    command: 'buildAndPush'
-    Dockerfile: '/home/sancak/Downloads/WebGoat'
+    targetType: 'inline'
+    script: 'docker run -it -p 192.168.13.74:8080:8080 -p 192.168.13.74:9090:9090 webgoat/webgoat'
