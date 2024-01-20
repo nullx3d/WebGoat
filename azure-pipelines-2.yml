@@ -6,4 +6,4 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: 'docker run -it -p 192.168.13.74:8080:8080 -p 192.168.13.74:9090:9090 webgoat/webgoat'
+    script: 'docker run  -p 192.168.13.74:8080:8080 -p 192.168.13.74:9090:9090 webgoat/webgoat'
