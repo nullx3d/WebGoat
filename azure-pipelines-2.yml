@@ -5,5 +5,5 @@ steps:
 
 - task: Bash@3
   inputs:
-    filePath: '/home/sancak/Downloads/WebGoat/'
+    filePath: '/home/sancak/Downloads/WebGoat/docker-compose.yml'
     arguments: 'docker-compose up -d'
