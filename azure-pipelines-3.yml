@@ -8,4 +8,4 @@ steps:
     script: |
       chmod -R 777  ./
       
-      docker run --rm -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -t http://192.168.13.74:8080/WebGoat -g gen.conf -x OWASP-ZAP-Report.xml -r scan-report.html
+      docker run --rm -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -t https://google.com -g gen.conf -x OWASP-ZAP-Report.xml -r scan-report.html
