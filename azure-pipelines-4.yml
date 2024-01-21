@@ -1,5 +1,6 @@
-pool:
-  vmImage: centos
+pool: centos
+
+
 steps:
 - task: Bash@3
   inputs:
