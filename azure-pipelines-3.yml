@@ -7,7 +7,7 @@ steps:
     apiConnection: 'invicti'
     scanTypes: '0'
     scanWebSites: 'e15b8874-5cff-4dd7-02a7-ae43025f6459'
-    scanWebSitesProfile: '5058e823-88b1-4734-09fc-ae4401945109'
+    scanWebSitesProfile: '5d21265b-4372-49fc-c209-b0ff051e9f2f'
     hasReport: true
     reportType: 'ScanDetail'
 
