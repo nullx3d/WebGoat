@@ -8,4 +8,6 @@ steps:
     scanTypes: '0'
     scanWebSites: 'e15b8874-5cff-4dd7-02a7-ae43025f6459'
     scanWebSitesProfile: '5058e823-88b1-4734-09fc-ae4401945109'
+    hasReport: true
+    reportType: 'ScanDetail'
 
