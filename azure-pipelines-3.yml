@@ -2,10 +2,10 @@ pool: centos
 
 steps:
 
-- task: Bash@3
+- task: netsparker-cloud@1
   inputs:
-    targetType: 'inline'
-    script: |
-      chmod -R 777  ./
-      
-      docker run --rm -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -t https://google.com -g gen.conf -x OWASP-ZAP-Report.xml -r scan-report.html
+    apiConnection: 'invicti'
+    scanTypes: '0'
+    scanWebSites: 'e15b8874-5cff-4dd7-02a7-ae43025f6459'
+    scanWebSitesProfile: '5058e823-88b1-4734-09fc-ae4401945109'
+
