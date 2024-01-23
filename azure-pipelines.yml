@@ -7,7 +7,7 @@ strategy:
 trigger:
 - master
 
-pool: $(poolName) $(test)
+pool: $(poolName) $(poolName1)
 
 
 steps:
