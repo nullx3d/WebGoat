@@ -1,13 +1,15 @@
 strategy:
   matrix:
     selfhosted:
-      poolName: batuhan-local
-      poolName1: centos 
+      poolName: batuhan-local 
+      vmImage:
+    selfhosted1:
+      poolName: centos
       vmImage:
 trigger:
 - master
 
-pool: $(poolName), $(poolName1)
+pool: $(poolName)
 
 
 steps:
