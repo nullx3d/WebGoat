@@ -1,16 +1,6 @@
-strategy:
-  matrix:
-    selfhosted:
-      poolName: batuhan-local 
-      vmImage:
-    selfhosted1:
-      poolName: centos
-      vmImage:
-trigger:
-- master
+trigger: none
 
-pool: $(poolName)
-
+pool: batuhan-local
 
 steps:
 - task: NexusIqPipelineTask@1
@@ -51,6 +41,7 @@ steps:
                 Exit 1
                 }
                 return $project_versions_data.count
+
 
 
 
