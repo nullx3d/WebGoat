@@ -33,7 +33,7 @@ stages:
            fortifyApplicationName: 'webgoatjava'
            fortifyApplicationVersion: 'webgoatjava'
 
-- stage: trivy file scan
+- stage: trivy_file_scan
   pool: centos
 
   jobs: 
@@ -45,7 +45,7 @@ stages:
           targetType: 'inline'
           script: 'trivy repo https://github.com/nullx3d/WebGoat'
 
-- stage: docker up
+- stage: docker_up
   pool: centos
 
   jobs: 
@@ -57,7 +57,7 @@ stages:
          script: 'docker-compose up -d'
          workingDirectory: '/home/sancak/Downloads/WebGoat'
 
-- stage: trivy image scan
+- stage: trivy_image_scan
   pool: centos
 
   jobs:
