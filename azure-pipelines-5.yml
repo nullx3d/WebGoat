@@ -1,0 +1,34 @@
+trigger:
+- master
+
+stages:
+- stage: sonatype
+  pool: centos
+
+  jobs:
+    - job: sonatype
+      steps:
+      - task: NexusIqPipelineTask@1
+        inputs:
+          nexusIqService: 'sonatype'
+          applicationId: 'webgoat'
+          stage: 'release'
+          scanTargets: '**/*.*'
+
+- stage: fortify
+  pool: batuhan-local
+  
+  jobs:
+    - job: fortify
+      steps: 
+      
+      - task: FortifySCA@7
+        inputs:
+           applicationType: 'java'
+           buildSourceVersion: '11'
+           fortifyBuildId: 'webgoatjava'
+           fortifyScanType: 'LocalScan'
+           runFortifyUpload: true
+           fortifyServerName: 'ssc test'
+           fortifyApplicationName: 'webgoatjava'
+           fortifyApplicationVersion: 'webgoatjava'
