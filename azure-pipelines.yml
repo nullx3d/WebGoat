@@ -3,12 +3,6 @@ trigger: none
 pool: batuhan-local
 
 steps:
-- task: NexusIqPipelineTask@1
-  inputs:
-    nexusIqService: 'sonatype'
-    applicationId: 'webgoat'
-    stage: 'release'
-    scanTargets: '**/*.*'
 
 - task: FortifySCA@7
   inputs:
